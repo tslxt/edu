@@ -20,6 +20,40 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+
+        $this->output->enable_profiler(true);
+
+        $this->load->library('table');
+        $this->load->model(array('User'));
+
+        $user = new User();
+        $user->load(2);
+
+
+        echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
+
+//        $this->load->library('phpass');
+        $pwd = '11111111';
+//        $hashed = $this->phpass->hash($pwd);
+        $hashed = $user->user_pwd;
+
+        echo $pwd;
+        echo '<br>';
+        echo $hashed;
+        echo '<br>';
+        echo strlen($hashed);
+
+        if ($this->phpass->check($pwd, $hashed)) {
+            echo 'login in';
+        }else {
+            echo 'wrong password';
+        }
+
+
+
+
+
+
+        $this->load->view('welcome_message');
 	}
 }
