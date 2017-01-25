@@ -9,4 +9,8 @@ class LoginMessage {
 
     public static $USER_NOT_EXIST = 'user not exist';
 
+    public static $WRONG_PWD = 'wrong password';
+
+    public static $SUCCESS = 'success';
+
 }

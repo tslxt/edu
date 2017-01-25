@@ -28,38 +28,34 @@ class Welcome extends CI_Controller {
 
         $user = new User();
 
-        $result = $user->verifyByPhone(18601199805,'11111111');
+        $result = $user->verifyByPhone(18601199806,'11111111');
 
         echo '<tt><pre>' . var_export($result, true) . '</pre></tt>';
 
-        if (!$result) {
-            return false;
+        if ($result[0]) {
+            echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
+        } else {
+            echo $result[1];
         }
-
-        echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
-
-//        $this->load->library('phpass');
-        $pwd = '11111111';
-//        $hashed = $this->phpass->hash($pwd);
-        $hashed = $user->user_pwd;
-
-        echo $pwd;
-        echo '<br>';
-        echo $hashed;
-        echo '<br>';
-        echo strlen($hashed);
-
-        if ($this->phpass->check($pwd, $hashed)) {
-            echo 'login in';
-        }else {
-            echo 'wrong password';
-        }
-
-
-
-
 
 
         $this->load->view('welcome_message');
 	}
+
+	public function test () {
+        $this->output->enable_profiler(true);
+	    echo 'test';
+
+        $ctime = getdate()[0];
+
+        $vtime = getdate()[0] - 1403895882;
+//        $ctime = $ctime[0];
+
+        $ip = $this->input->ip_address();
+
+
+
+        echo '<tt><pre>' . var_export($ip, true) . '</pre></tt>';
+
+    }
 }

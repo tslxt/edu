@@ -24,12 +24,19 @@ class User extends EDU_Model {
 
     public function verifyByPhone($phone, $pwd) {
 
+        $this->load->model(array('loginmessage'));
+
         $result = $this->loadByPhone($phone);
 
         if ($result) {
-            echo 'in user';
-            echo '<tt><pre>' . var_export($this, true) . '</pre></tt>';
-            echo 'in user';
+
+            if ($this->phpass->check($pwd, $this->user_pwd)) {
+                return array(true);
+            }else {
+                return array(false, LoginMessage::$WRONG_PWD);
+            }
+
+
         } else {
             return array(false, LoginMessage::$USER_NOT_EXIST);
         }
