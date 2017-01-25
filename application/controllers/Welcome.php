@@ -27,8 +27,14 @@ class Welcome extends CI_Controller {
         $this->load->model(array('User'));
 
         $user = new User();
-        $user->load(2);
 
+        $result = $user->verifyByPhone(18601199805,'11111111');
+
+        echo '<tt><pre>' . var_export($result, true) . '</pre></tt>';
+
+        if (!$result) {
+            return false;
+        }
 
         echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
 

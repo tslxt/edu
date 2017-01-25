@@ -22,4 +22,27 @@ class User extends EDU_Model {
      * */
     public $user_pwd;
 
+    public function verifyByPhone($phone, $pwd) {
+
+        $result = $this->loadByPhone($phone);
+
+        if ($result) {
+            echo 'in user';
+            echo '<tt><pre>' . var_export($this, true) . '</pre></tt>';
+            echo 'in user';
+        } else {
+            return array(false, LoginMessage::$USER_NOT_EXIST);
+        }
+    }
+
+    private function loadByPhone($phone) {
+        $query = $this->db->get_where($this::DB_TABLE, array('user_phone' => $phone));
+        if ($query->row()) {
+            $this->populate($query->row());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
