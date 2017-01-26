@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63a81826-73bb-4d68-85f2-a0e3861447fb" name="Default" comment="修改user表,增加了last_ip和last_login">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Welcome.php" afterPath="$PROJECT_DIR$/application/controllers/Welcome.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/core/edu_model.php" afterPath="$PROJECT_DIR$/application/core/edu_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/user.php" afterPath="$PROJECT_DIR$/application/models/user.php" />
+    <list default="true" id="63a81826-73bb-4d68-85f2-a0e3861447fb" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="edu.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,8 +58,8 @@
       <file leaf-file-name="users.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mysql/users.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+            <state relative-caret-position="60">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -263,7 +260,7 @@
       <option name="presentableId" value="Default" />
       <updated>1485185610727</updated>
       <workItem from="1485185611969" duration="35000" />
-      <workItem from="1485185728024" duration="21611000" />
+      <workItem from="1485185728024" duration="21822000" />
     </task>
     <task id="LOCAL-00001" summary="project init">
       <created>1485186102914</created>
@@ -293,11 +290,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485365240004</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改user表,增加了last_ip和last_login">
+      <created>1485453080116</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1485453080116</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21646000" />
+    <option name="totallyTimeSpent" value="21857000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -365,7 +369,8 @@
     <MESSAGE value="project init" />
     <MESSAGE value="加入user类" />
     <MESSAGE value="加入auth方法及返回信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="加入auth方法及返回信息" />
+    <MESSAGE value="修改user表,增加了last_ip和last_login" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改user表,增加了last_ip和last_login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -472,8 +477,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mysql/users.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding />
         </state>
       </provider>
