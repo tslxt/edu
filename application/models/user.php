@@ -52,6 +52,8 @@ class User extends EDU_Model {
 
                 $this->save();
 
+                /*just test git*/
+
                 return array(true);
             }else {
                 return array(false, LoginMessage::$WRONG_PWD);
