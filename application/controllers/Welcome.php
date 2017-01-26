@@ -28,12 +28,16 @@ class Welcome extends CI_Controller {
 
         $user = new User();
 
+        echo $user::DB_TABLE_PK;
+        echo $user::DB_TABLE;
+
         $result = $user->verifyByPhone(18601199806,'11111111');
 
         echo '<tt><pre>' . var_export($result, true) . '</pre></tt>';
 
         if ($result[0]) {
             echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
+//            $user->save();
         } else {
             echo $result[1];
         }
@@ -44,12 +48,18 @@ class Welcome extends CI_Controller {
 
 	public function test () {
         $this->output->enable_profiler(true);
-	    echo 'test';
 
-        $ctime = getdate()[0];
+//        $ctime = getdate()[0];
+//
+//        $vtime = getdate()[0] - 1403895882;
 
-        $vtime = getdate()[0] - 1403895882;
-//        $ctime = $ctime[0];
+        $this->load->helper('date');
+
+        $now = time();
+//        echo unix_to_human($now); // U.S. time, no seconds
+//        echo unix_to_human($now, TRUE, 'us'); // U.S. time with seconds
+        echo unix_to_human($now, TRUE, 'eu'); // Euro time with seconds
+
 
         $ip = $this->input->ip_address();
 
@@ -57,5 +67,9 @@ class Welcome extends CI_Controller {
 
         echo '<tt><pre>' . var_export($ip, true) . '</pre></tt>';
 
+        $user_agent = substr($this->input->user_agent(),0,149);
+        echo '<tt><pre>' . var_export($user_agent, true) . '</pre></tt>';
+
+        echo time() - 86400;
     }
 }

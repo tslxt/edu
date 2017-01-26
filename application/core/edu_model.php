@@ -16,7 +16,8 @@ class EDU_Model extends CI_Model {
     }
 
     private function update() {
-        $this->db->update($this::DB_TABLE, $this, $this::DB_TABLE_PK);
+        $this->db->where($this::DB_TABLE_PK, $this->{$this::DB_TABLE_PK});
+        $this->db->update($this::DB_TABLE, $this);
     }
 
     public function populate($row) {

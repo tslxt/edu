@@ -14,15 +14,29 @@ class User extends EDU_Model {
      * */
     public $user_id;
     /*
-     * @var string;
+     * @var string
      * */
     public $user_phone;
     /*
-     * @var string;
+     * @var string
      * */
     public $user_pwd;
+    /*
+     * @var string
+     * */
+    public $last_ip;
+    /*
+     * @var string
+     * */
+    public $last_login;
+    /*
+     * @var datetime
+     * */
+    public $created;
 
     public function verifyByPhone($phone, $pwd) {
+
+        $this->load->helper('date');
 
         $this->load->model(array('loginmessage'));
 
@@ -31,6 +45,13 @@ class User extends EDU_Model {
         if ($result) {
 
             if ($this->phpass->check($pwd, $this->user_pwd)) {
+
+                $this->last_ip = $this->input->ip_address();
+
+                $this->last_login = unix_to_human(time(), TRUE, 'eu');
+
+                $this->save();
+
                 return array(true);
             }else {
                 return array(false, LoginMessage::$WRONG_PWD);
