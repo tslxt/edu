@@ -72,4 +72,23 @@ class Welcome extends CI_Controller {
 
         echo time() - 86400;
     }
+
+    public function test1($phone=null) {
+        $this->output->enable_profiler(true);
+
+//        echo $phone;
+
+        $this->load->library('table');
+        $this->load->model(array('User'));
+
+        $user = new User();
+
+        $result = $user->get_user_by_id($phone);
+
+        echo '<tt><pre>' . var_export($result, true) . '</pre></tt>';
+
+        echo '<tt><pre>' . var_export($user, true) . '</pre></tt>';
+
+
+    }
 }

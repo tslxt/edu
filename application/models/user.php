@@ -75,4 +75,36 @@ class User extends EDU_Model {
         }
     }
 
+    /**** new codes ****/
+
+    /**
+     * @param $phone string
+     */
+    public function get_user_by_phone($phone) {
+
+        $this->db->where('user_phone', $phone);
+
+        $query = $this->db->get($this::DB_TABLE);
+        if ($query->num_rows() == 1) {
+            $this->populate($query->row());
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param $user_id int
+     */
+    public function get_user_by_id($id) {
+
+        $this->db->where($this::DB_TABLE_PK, $id);
+
+        $query = $this->db->get($this::DB_TABLE);
+        if ($query->num_rows() == 1) {
+            $this->populate($query->row());
+            return true;
+        }
+        return false;
+    }
+
 }
